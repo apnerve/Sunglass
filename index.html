@@ -48,6 +48,10 @@
 
 <pre><code>@import "sunglass/helpers";
 @import "sunglass/css3";
+
+or simply
+
+@import "sunglass/all";
 </code></pre>
 </li>
 </ul><h2>Helpers</h2>
@@ -64,7 +68,7 @@ percent(500, 10) -&gt; 50
 $smartphones: 640px;
 $tablets: 700px;
 $smallscreen: 1024px;
-@include media(smartphones/tablets/smallscreen);
+@include media($size, $device: screen, $minmax: max-width);
 </code></pre>
 
 <h2>CSS3</h2>
@@ -80,6 +84,7 @@ $smallscreen: 1024px;
     @content;
 }
 @include filter($string);
+@include hyphens($string);
 @include linear-gradient($from, $to, $dir: "to bottom");
 @include linear-gradient-custom($string);
 @include opacity($string);
@@ -91,8 +96,6 @@ $smallscreen: 1024px;
 }
 @include transform($string);
 @include transition($string);
-
-@include calc($property, $string);
 </code></pre>
 
 <h2>Resets</h2>
