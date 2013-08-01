@@ -1,120 +1,99 @@
-<!DOCTYPE html>
+<!doctype html>
 <html>
   <head>
-    <meta charset='utf-8'>
+    <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="chrome=1">
-    <link href='https://fonts.googleapis.com/css?family=Chivo:900' rel='stylesheet' type='text/css'>
-    <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen" />
-    <link rel="stylesheet" type="text/css" href="stylesheets/pygment_trac.css" media="screen" />
-    <link rel="stylesheet" type="text/css" href="stylesheets/print.css" media="print" />
+    <title>Sunglass by devatrox</title>
+
+    <link rel="stylesheet" href="stylesheets/styles.css">
+    <link rel="stylesheet" href="stylesheets/pygment_trac.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
     <!--[if lt IE 9]>
     <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
-    <title>Sunglass by devatrox</title>
   </head>
-
   <body>
-    <div id="container">
-      <div class="inner">
+    <div class="wrapper">
+      <header>
+        <h1>Sunglass</h1>
+        <p></p>
 
-        <header>
-          <h1>Sunglass</h1>
-          <h2></h2>
-        </header>
+        <p class="view"><a href="https://github.com/devatrox/Sunglass">View the Project on GitHub <small>devatrox/Sunglass</small></a></p>
 
-        <section id="downloads" class="clearfix">
-          <a href="https://github.com/devatrox/Sunglass/zipball/master" id="download-zip" class="button"><span>Download .zip</span></a>
-          <a href="https://github.com/devatrox/Sunglass/tarball/master" id="download-tar-gz" class="button"><span>Download .tar.gz</span></a>
-          <a href="https://github.com/devatrox/Sunglass" id="view-on-github" class="button"><span>View on GitHub</span></a>
-        </section>
 
-        <hr>
+        <ul>
+          <li><a href="https://github.com/devatrox/Sunglass/zipball/master">Download <strong>ZIP File</strong></a></li>
+          <li><a href="https://github.com/devatrox/Sunglass/tarball/master">Download <strong>TAR Ball</strong></a></li>
+          <li><a href="https://github.com/devatrox/Sunglass">View On <strong>GitHub</strong></a></li>
+        </ul>
+      </header>
+      <section>
+        <h1>
+<a name="sunglass" class="anchor" href="#sunglass"><span class="octicon octicon-link"></span></a>Sunglass</h1>
 
-        <section id="main_content">
-          <h1>Sunglass</h1>
+<p>Mixin and functions library for Sass</p>
 
-<p>Mixin library for Sass</p>
-
-<iframe style="border: 0; margin: 0; padding: 0;"
-        src="https://www.gittip.com/devatrox/widget.html"
-        width="48pt" height="22pt"></iframe>
-
-<h2>Requirements</h2>
+<h2>
+<a name="requirements" class="anchor" href="#requirements"><span class="octicon octicon-link"></span></a>Requirements</h2>
 
 <p>Sass 3.2+</p>
 
-<h2>Install</h2>
+<h2>
+<a name="install" class="anchor" href="#install"><span class="octicon octicon-link"></span></a>Install</h2>
 
 <ul>
 <li>Download and put the "sunglass" folder in your Sass directory</li>
 <li>
 <p>Import Sunglass in your Sass documents as needed</p>
 
-<pre><code>@import "sunglass/helpers";
-@import "sunglass/css3";
-
-or simply
-
-@import "sunglass/all";
+<pre><code>@import "sunglass/sunglass";
 </code></pre>
 </li>
-</ul><h2>Helpers</h2>
+<li><p>Have fun!</p></li>
+</ul><h2>
+<a name="functions" class="anchor" href="#functions"><span class="octicon octicon-link"></span></a>Functions</h2>
 
-<pre><code>black(0.5) -&gt; rgba(0,0,0,0.5)
-white(0.5) -&gt; rgba(255,255,255,0.5)
+<pre><code>cmyk(86,0,17,37) -&gt; #16a085
+cmyka(86,0,17,37,0.5) -&gt; rgba(22,160,133,0.5)
 
-percent(500, 10) -&gt; 50
+hsv(168,86,63) -&gt; #16a085
+hsva(168,86,63,0.5) -&gt; rgba(22,160,133,0.5)
 
-@include contrast($bgcolor);
+$imgbase: "../images/";
+img("filename.png") -&gt; url("../images/filename.png")
 
-@extend %clear-after;
+$icobase: "../icons/";
+icon("filename.png") -&gt; url("../icons/filename.png")
 
-$smartphones: 640px;
-$tablets: 700px;
-$smallscreen: 1024px;
-@include media($size, $device: screen, $minmax: max-width);
+long-shadow(#16a085, 100) -&gt; #139077 1px 1px 0, #139077 2px 2px 0, #139078 3px 3px 0, ...
 </code></pre>
 
-<h2>CSS3</h2>
+<h2>
+<a name="mixins" class="anchor" href="#mixins"><span class="octicon octicon-link"></span></a>Mixins</h2>
 
-<pre><code>@include animation($string);
-@include appearance($string);
-@include backface-visibility($string);
-@include background-color($color, $behind: null);
-@include background-size($string);
-@include border-radius($radius);
-@include box-shadow($string);
-@include keyframes($name) {
-    @content;
-}
-@include filter($string);
-@include hyphens($string);
-@include linear-gradient($from, $to, $dir: "to bottom");
-@include linear-gradient-custom($string);
-@include opacity($string);
-@include radial-gradient($from, $to, $type: ellipse farthest-corner, $origin: center);
-@include radial-gradient-custom($string);
-@include resize($string);
-@include selection {
-    @content;
-}
-@include transform($string);
-@include transition($string);
+<pre><code>@include letterpress(#16a085);
 </code></pre>
 
-<h2>Resets</h2>
+<h3>
+<a name="result" class="anchor" href="#result"><span class="octicon octicon-link"></span></a>Result:</h3>
 
-<pre><code>@import "sunglass/normalize";
-@import "sunglass/reset";
+<pre><code>text-shadow: rgba(0,0,0,0.7) 0 1px 0;
+color: #e7f5f2;
 </code></pre>
-        </section>
 
-        <footer>
-          Sunglass is maintained by <a href="https://github.com/devatrox">devatrox</a><br>
-          This page was generated by <a href="http://pages.github.com">GitHub Pages</a>. Tactile theme by <a href="http://twitter.com/jasonlong">Jason Long</a>.
-        </footer>
+<h2>
+<a name="reset" class="anchor" href="#reset"><span class="octicon octicon-link"></span></a>Reset</h2>
 
-                  <script type="text/javascript">
+<pre><code>@import "sunglass/reset";
+</code></pre>
+      </section>
+      <footer>
+        <p>This project is maintained by <a href="https://github.com/devatrox">devatrox</a></p>
+        <p><small>Hosted on GitHub Pages &mdash; Theme by <a href="https://github.com/orderedlist">orderedlist</a></small></p>
+      </footer>
+    </div>
+    <script src="javascripts/scale.fix.js"></script>
+              <script type="text/javascript">
             var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
             document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
           </script>
@@ -125,7 +104,5 @@ $smallscreen: 1024px;
             } catch(err) {}
           </script>
 
-      </div>
-    </div>
   </body>
 </html>
