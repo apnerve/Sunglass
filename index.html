@@ -43,16 +43,22 @@
 <ul>
 <li>Download and put the "sunglass" folder in your Sass directory</li>
 <li>
-<p>Import Sunglass in your Sass documents as needed</p>
+<p>Import Sunglass in your Sass file</p>
 
 <pre><code>@import "sunglass/sunglass";
 </code></pre>
 </li>
 <li><p>Have fun!</p></li>
 </ul><h2>
-<a name="reset" class="anchor" href="#reset"><span class="octicon octicon-link"></span></a>Reset</h2>
+<a name="light--shadow" class="anchor" href="#light--shadow"><span class="octicon octicon-link"></span></a>Light &amp; Shadow</h2>
 
-<pre><code>@import "sunglass/reset";
+<pre><code>$global-light: se;
+
+global-light(2px) -&gt; -2px -2px
+
+light-source(nw, 2px) -&gt; 2px 2px
+
+long-shadow(#107360, 50px) -&gt; #0e6756 -1px -1px 0, #0e6756 -2px -2px 0, #0e6856 -3px -3px 0, ...
 </code></pre>
 
 <h2>
@@ -69,12 +75,22 @@ img("filename.png") -&gt; url("../images/filename.png")
 
 $icobase: "../icons/";
 icon("filename.png") -&gt; url("../icons/filename.png")
-
-long-shadow(#16a085, 100) -&gt; #139077 1px 1px 0, #139077 2px 2px 0, #139078 3px 3px 0, ...
 </code></pre>
 
 <h2>
 <a name="mixins" class="anchor" href="#mixins"><span class="octicon octicon-link"></span></a>Mixins</h2>
+
+<h3>
+<a name="google-font" class="anchor" href="#google-font"><span class="octicon octicon-link"></span></a>google-font()</h3>
+
+<pre><code>@include google-font(Open Sans,(400,300,600,700));
+</code></pre>
+
+<h5>
+<a name="result" class="anchor" href="#result"><span class="octicon octicon-link"></span></a>Result:</h5>
+
+<pre><code>@import url(//fonts.googleapis.com/css?family=Open+Sans:400,300,600,700);
+</code></pre>
 
 <h3>
 <a name="letterpress" class="anchor" href="#letterpress"><span class="octicon octicon-link"></span></a>letterpress()</h3>
@@ -82,11 +98,41 @@ long-shadow(#16a085, 100) -&gt; #139077 1px 1px 0, #139077 2px 2px 0, #139078 3p
 <pre><code>@include letterpress(#16a085);
 </code></pre>
 
-<h4>
-<a name="result" class="anchor" href="#result"><span class="octicon octicon-link"></span></a>Result:</h4>
+<h5>
+<a name="result-1" class="anchor" href="#result-1"><span class="octicon octicon-link"></span></a>Result:</h5>
 
 <pre><code>text-shadow: rgba(0,0,0,0.7) 0 1px 0;
 color: #e7f5f2;
+</code></pre>
+
+<h3>
+<a name="font-size" class="anchor" href="#font-size"><span class="octicon octicon-link"></span></a>font-size()</h3>
+
+<pre><code>$base-font-size: 14px;
+@include font-size(2rem);
+</code></pre>
+
+<h5>
+<a name="result-2" class="anchor" href="#result-2"><span class="octicon octicon-link"></span></a>Result:</h5>
+
+<pre><code>font-size: 28px;
+font-size: 2rem;
+</code></pre>
+
+<h2>
+<a name="html5doctorcom-reset" class="anchor" href="#html5doctorcom-reset"><span class="octicon octicon-link"></span></a>html5doctor.com Reset</h2>
+
+<pre><code>@import "sunglass/addons/reset";
+</code></pre>
+
+<h2>
+<a name="grid-system" class="anchor" href="#grid-system"><span class="octicon octicon-link"></span></a>Grid system</h2>
+
+<pre><code>@import "sunglass/addons/grid";
+
+or
+
+@import "sunglass/addons/bootstrap-grid";
 </code></pre>
       </section>
       <footer>
