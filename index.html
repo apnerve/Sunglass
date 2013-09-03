@@ -52,11 +52,13 @@
 </ul><h2>
 <a name="light--shadow" class="anchor" href="#light--shadow"><span class="octicon octicon-link"></span></a>Light &amp; Shadow</h2>
 
+<p>global-light() gives you a consistent source of light for all your shadow stuff, just like you're used to in Photoshop!</p>
+
 <pre><code>$global-light: se;
 
 global-light(2px) -&gt; -2px -2px
 
-light-source(nw, 2px) -&gt; 2px 2px
+local-light(nw, 2px) -&gt; 2px 2px
 
 long-shadow(#107360, 50px) -&gt; #0e6756 -1px -1px 0, #0e6756 -2px -2px 0, #0e6856 -3px -3px 0, ...
 </code></pre>
@@ -75,6 +77,8 @@ img("filename.png") -&gt; url("../images/filename.png")
 
 $icobase: "../icons/";
 icon("filename.png") -&gt; url("../icons/filename.png")
+
+reverse(2em -4em) -&gt; -2em 4em
 </code></pre>
 
 <h2>
@@ -83,13 +87,13 @@ icon("filename.png") -&gt; url("../icons/filename.png")
 <h3>
 <a name="google-font" class="anchor" href="#google-font"><span class="octicon octicon-link"></span></a>google-font()</h3>
 
-<pre><code>@include google-font(Open Sans,(400,300,600,700));
+<pre><code>@include google-font(Open Sans,(400,300,600,700), https);
 </code></pre>
 
 <h5>
 <a name="result" class="anchor" href="#result"><span class="octicon octicon-link"></span></a>Result:</h5>
 
-<pre><code>@import url(//fonts.googleapis.com/css?family=Open+Sans:400,300,600,700);
+<pre><code>@import url(https://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700);
 </code></pre>
 
 <h3>
@@ -101,15 +105,17 @@ icon("filename.png") -&gt; url("../icons/filename.png")
 <h5>
 <a name="result-1" class="anchor" href="#result-1"><span class="octicon octicon-link"></span></a>Result:</h5>
 
-<pre><code>text-shadow: rgba(0,0,0,0.7) 0 1px 0;
+<pre><code>// Will - by default - use the $global-light setting
+
+text-shadow: rgba(0,0,0,0.7) 0 1px 0;
 color: #e7f5f2;
 </code></pre>
 
 <h3>
-<a name="font-size" class="anchor" href="#font-size"><span class="octicon octicon-link"></span></a>font-size()</h3>
+<a name="rem" class="anchor" href="#rem"><span class="octicon octicon-link"></span></a>rem()</h3>
 
 <pre><code>$base-font-size: 14px;
-@include font-size(2rem);
+@include rem(font-size, 2rem);
 </code></pre>
 
 <h5>
@@ -128,10 +134,13 @@ font-size: 2rem;
 <h2>
 <a name="grid-system" class="anchor" href="#grid-system"><span class="octicon octicon-link"></span></a>Grid system</h2>
 
-<pre><code>@import "sunglass/addons/grid";
+<pre><code>$grid: 12;
+$gap: 4%;
+@import "sunglass/addons/grid";
 
 or
 
+$gap: 4%;
 @import "sunglass/addons/bootstrap-grid";
 </code></pre>
       </section>
